@@ -1,0 +1,10 @@
+Run the main.py to start the application.
+
+python main.py
+
+Also pandas and numpy are two dependencies that must be 
+priorly installed before running the main.py
+
+All the other files contain respective classes as
+per the Object Oriented Design implementation.
+
