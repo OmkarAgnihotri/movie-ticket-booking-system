@@ -5,6 +5,15 @@ from Theatre import Theatre
 from User import User
 from datetime import datetime, time, date
 
+'''
+    This is the main Driver code. Run this file to run the application
+    
+    python main.py
+    
+    Type the above command to start the application
+
+'''
+
 USERS = []
 
 NAMES = ['Omkar Agnihotri', 'John Doe', 'Dummy User']
@@ -21,7 +30,7 @@ SHOWS = [
 numberOfSeats = 30
 while True:
     try:
-        numberOfSeats = int(input('\n Enter number of seats per show to start with :'))
+        numberOfSeats = int(input('\n Enter number of seats per show to start with [multiple of 5] :'))
         break
     except Exception:
         print('\n INVALID INPUT !\n')
@@ -80,7 +89,8 @@ def book_ticket():
             SELECTED_SHOW = AVAILABLE_SHOWS.iloc[choice - 1]['showID']
             SEATS = THEATRE.seatSelector(SELECTED_SHOW)
             print(SEATS.applymap(lambda seat : int(seat.is_booked)))
-            
+            print('\n 0 => Avaialable seats    1 => Filled Seats\n')
+            print( 'enter row( UPPERCASE ) followed by column e.g. A3 corresponds to row `A` and column `1`\n')
             try:
                 choice = int(input('\n ENTER NUMBER OF SEATS : '))
                 SELECTED_SEATS = []
@@ -138,7 +148,7 @@ def cancel_seats():
                 
                 print(BOOKED_SEATS)
                 
-                seat_choice = input('\n Enter Seat Number to be cancelled : ')
+                seat_choice = input('\n Enter Seat Number(only one) to be cancelled : ')
                 LOGGED_IN_USER.cancelSeat(SELECTED_BOOKING, seat_choice)
                 break
             else :
